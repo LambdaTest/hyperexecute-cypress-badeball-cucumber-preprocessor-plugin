@@ -5,21 +5,19 @@ testSuiteTimeout: 90
 testSuiteStep: 90
 
 runson: win
+cypress: true
 
 autosplit: true
 concurrency: 1
-
-cypress: true
-cypressOps:
-  Build: "HYP-Cypress-Cucumber-Preprocessor"
-  Tags: ["HYP","CYP", "Win", "Autosplit"]
-  BuildTags: ["Hyperexecute-Cypress"]
-  Network: true
 
 pre:
   - npm install
   - npm install cypress --save-dev
   - npm install @badeball/cypress-cucumber-preprocessor
+
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
 
 testDiscovery:
   mode: static
@@ -28,4 +26,10 @@ testDiscovery:
 
 testRunnerCommand: npx cypress run --spec cypress/e2e/duckduckgo.feature --browser=chrome-95.0 --headed --config video=false
 
-jobLabel: [HYP, Cypress-Cucumber-Preprocessor, without-lambdatest-config]
+cypressOps:
+  Build: "HyperExecute-Cypress-Badeball-Build"
+  Tags: ["HyperExecute","Cypress", "Badeball"]
+  BuildTags: ["Hyperexecute-Cypress"]
+  Network: true
+
+jobLabel: [cypress, hyperexecute, badeball-plugin]
