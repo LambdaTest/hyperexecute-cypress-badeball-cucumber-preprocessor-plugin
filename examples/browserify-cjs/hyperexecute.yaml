@@ -1,0 +1,35 @@
+---
+version: 0.1
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: win
+cypress: true
+
+autosplit: true
+concurrency: 1
+
+pre:
+  - npm install
+  - npm install cypress --save-dev
+  - npm install @badeball/cypress-cucumber-preprocessor
+
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
+
+testDiscovery:
+  mode: static
+  type: raw
+  command: ls cypress/e2e/*.js
+
+testRunnerCommand: npx cypress run --spec cypress/e2e/duckduckgo.feature --browser=chrome-95.0 --headed --config video=false
+
+cypressOps:
+  Build: "HyperExecute-Cypress-Badeball-Build"
+  Tags: ["HyperExecute","Cypress", "Badeball"]
+  BuildTags: ["Hyperexecute-Cypress"]
+  Network: true
+
+jobLabel: [cypress, hyperexecute, badeball-plugin]
