@@ -1,49 +1,120 @@
-## Steps to Trigger the Test
+# Run Cypress Badeball Cucumber Preprocessor Plugin on TestMu AI (Formerly LambdaTest)
+
+<p align="center">
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://www.testmuai.com/support/docs/hyperexecute-getting-started/"><img src="https://img.shields.io/badge/HyperExecute-Cypress%20Cucumber-orange.svg?style=for-the-badge&labelColor=000" alt="HyperExecute Cypress Cucumber"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
+</p>
+
+## Getting Started
+
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
+
+With TestMu AI (Formerly LambdaTest), you can run Cypress tests with the `@badeball/cypress-cucumber-preprocessor` plugin across real browsers and operating systems using HyperExecute. This sample shows how to configure the Cypress Badeball Cucumber Preprocessor Plugin to run on the TestMu AI cloud.
+
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
 
 ### Prerequisites
 
-To run the Tests on HyperExecute from your Local System, you are required:
+To run tests on HyperExecute from your local system, you need:
 
-- Your LambdaTest [Username and Access key](https://www.lamdbdatest.com/support/docs/hyperexecute-how-to-get-my-username-and-access-key/)
-- [HyperExecute YAML](https://www.lamdbdatest.com/support/docs/hyperexecute-yaml-version0.2/) file which contains all the necessary instructions.
-- [HyperExecute CLI](https://www.lamdbdatest.com/support/docs/hyperexecute-cli-run-tests-on-hyperexecute-grid/) in order to initiate a test execution Job.
-- Setup the [Environmental Variable](https://www.lamdbdatest.com/support/docs/hyperexecute-environment-variable-setup/)
+- Your TestMu AI (Formerly LambdaTest) [Username and Access Key](https://www.testmuai.com/support/docs/hyperexecute-how-to-get-my-username-and-access-key/).
+- A [HyperExecute YAML](https://www.testmuai.com/support/docs/hyperexecute-yaml-version0.2/) file containing all necessary instructions.
+- The [HyperExecute CLI](https://www.testmuai.com/support/docs/hyperexecute-cli-run-tests-on-hyperexecute-grid/) to initiate a test execution job.
+- [Environment variables](https://www.testmuai.com/support/docs/hyperexecute-environment-variable-setup/) configured for your credentials.
 
-### Step 1: Download or Clone the Repo
-- Download or Clone this repo in order to trigger this test in your HyperExecute account.
-- Go to the examples/browserify-cjs folder
+### Setup
+
+**Step 1: Clone the repository**
+
 ```bash
-cd examples/browserify-cjs
+git clone https://github.com/LambdaTest/hyperexecute-cypress-badeball-cucumber-preprocessor-plugin
+cd hyperexecute-cypress-badeball-cucumber-preprocessor-plugin/examples/browserify-cjs
 ```
 
-### Step 2: Download the CLI
-Download the `HyperExecute CLI` for your OS from the links given below :
+**Step 2: Download the HyperExecute CLI**
+
+Download the HyperExecute CLI for your OS:
 
 | Platform | Download Link |
 | ---------| --------------------------- |
-| Linux | https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute |
-| Windows | https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe |
-| macOS | https://downloads.lambdatest.com/hyperexecute/darwin/hyperexecute |
+| Linux    | https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute |
+| Windows  | https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe |
+| macOS    | https://downloads.lambdatest.com/hyperexecute/darwin/hyperexecute |
 
-### Step 3: Configure the HyperExecute YAML files
-Configure your YAML file as per your use cases using **key value** pairs.
+### Run tests
 
-In this sample YAML file, we have mentioned:
+**Step 1: Configure the HyperExecute YAML**
+
+Configure your YAML file with key-value pairs. The sample YAML in this repo includes:
 
 - **version** of the YAML file
 - **Timeouts** for executing your project
-- **Mode of execution** is [Autosplit](https://www.lamdbdatest.com/support/docs/hyperexecute-auto-split-strategy/). You can also opt for [Matrix](https://www.lamdbdatest.com/support/docs/hyperexecute-matrix-multiplexing-strategy/) or [Hybrid](/support/docs/hyperexecute-hybrid-strategy/) mode.
-- **Pre** commands in which we have to pass the installation command for all the necessary dependencies like `@badeball/cypress-cucumber-preprocessor`
-- and other necessary YAML Parameters
+- **Mode of execution**: [Autosplit](https://www.testmuai.com/support/docs/hyperexecute-auto-split-strategy/). You can also use [Matrix](https://www.testmuai.com/support/docs/hyperexecute-matrix-multiplexing-strategy/) or Hybrid mode.
+- **Pre** commands to install all required dependencies like `@badeball/cypress-cucumber-preprocessor`
 
-### Step 4: Trigger the Test
+**Step 2: Trigger the test**
 
-> **NOTE :** In case of MacOS, if you get a permission denied warning while executing CLI, simply run **`chmod u+x ./hyperexecute`** to allow permission. In case you get a security popup, allow it from your **System Preferences** → **Security & Privacy** → **General tab**.
+> **NOTE:** On macOS, if you see a permission denied warning, run `chmod u+x ./hyperexecute`. If a security popup appears, allow it from **System Preferences** → **Security & Privacy** → **General tab**.
 
-Run the below command in your terminal at the root folder of the project:
+Run the following command from the root folder:
 
 ```bash
 ./hyperexecute --user YOUR_USERNAME --key YOUR_ACCESS_KEY --config RELATIVE_PATH_OF_YOUR_YAML_FILE
 ```
 
-> Reference: This example is picked from the official [@badeball/cypress-cucumber-preprocessor](https://github.com/badeball/cypress-cucumber-preprocessor) repository
+> Reference: This example is based on the official [@badeball/cypress-cucumber-preprocessor](https://github.com/badeball/cypress-cucumber-preprocessor) repository.
+
+### Local testing with TestMu AI Tunnel
+
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
+
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
+
+To enable tunnel for HyperExecute, add `tunnel: true` in your HyperExecute YAML configuration file.
+
+## Contributions
+
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Node.js version, OS, and Angular CLI version.
+
+## TestMu AI (Formerly LambdaTest) Community
+
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
+
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
+
+## Learning Resources by TestMu AI (Formerly LambdaTest)
+
+Learn modern testing through tutorials, guides, videos, and weekly updates:
+
+* [TestMu AI Blog](https://www.testmuai.com/blog/)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
+  
+## LambdaTest is Now TestMu AI
+
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
+
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
+
+ð Find the new home for [LambdaTest](https://www.testmuai.com).
+
+### How LambdaTest Evolved into TestMu AI
+
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
+
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
+
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
+
+What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
+
+## Support
+
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
