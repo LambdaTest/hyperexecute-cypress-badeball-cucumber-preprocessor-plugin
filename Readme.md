@@ -1,4 +1,4 @@
-# Run Cypress Badeball Cucumber Preprocessor Plugin on TestMu AI (Formerly LambdaTest)
+﻿# Run Cypress Cucumber Tests with Badeball Preprocessor on TestMu AI (Formerly LambdaTest)
 
 <p align="center">
   <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
@@ -19,10 +19,10 @@ With TestMu AI (Formerly LambdaTest), you can run Cypress tests with the `@badeb
 
 To run tests on HyperExecute from your local system, you need:
 
-- Your TestMu AI (Formerly LambdaTest) [Username and Access Key](https://www.testmuai.com/support/docs/hyperexecute-how-to-get-my-username-and-access-key/).
-- A [HyperExecute YAML](https://www.testmuai.com/support/docs/hyperexecute-yaml-version0.2/) file containing all necessary instructions.
-- The [HyperExecute CLI](https://www.testmuai.com/support/docs/hyperexecute-cli-run-tests-on-hyperexecute-grid/) to initiate a test execution job.
-- [Environment variables](https://www.testmuai.com/support/docs/hyperexecute-environment-variable-setup/) configured for your credentials.
+- Your TestMu AI (Formerly LambdaTest) Username and Access Key.
+- A HyperExecute YAML file containing all necessary instructions.
+- The HyperExecute CLI to initiate a test execution job.
+- Environment variables configured for your credentials.
 
 ### Setup
 
@@ -51,7 +51,7 @@ Configure your YAML file with key-value pairs. The sample YAML in this repo incl
 
 - **version** of the YAML file
 - **Timeouts** for executing your project
-- **Mode of execution**: [Autosplit](https://www.testmuai.com/support/docs/hyperexecute-auto-split-strategy/). You can also use [Matrix](https://www.testmuai.com/support/docs/hyperexecute-matrix-multiplexing-strategy/) or Hybrid mode.
+- **Mode of execution**: Autosplit. You can also use Matrix or Hybrid mode.
 - **Pre** commands to install all required dependencies like `@badeball/cypress-cucumber-preprocessor`
 
 **Step 2: Trigger the test**
@@ -64,7 +64,7 @@ Run the following command from the root folder:
 ./hyperexecute --user YOUR_USERNAME --key YOUR_ACCESS_KEY --config RELATIVE_PATH_OF_YOUR_YAML_FILE
 ```
 
-> Reference: This example is based on the official [@badeball/cypress-cucumber-preprocessor](https://github.com/badeball/cypress-cucumber-preprocessor) repository.
+> Reference: This example is based on the official @badeball/cypress-cucumber-preprocessor repository.
 
 ### Local testing with TestMu AI Tunnel
 
